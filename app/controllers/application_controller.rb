@@ -16,14 +16,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/articles' do
-    @articles = Articla.all
+    @articles = Article.all
     erb :index
   end
-
-  get '/articles' do
-  @article = Article.all
-  erb :index
-end
 
   get '/articles/:id' do
     @article = Article.find(params["id"])
