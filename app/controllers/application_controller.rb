@@ -20,6 +20,11 @@ class ApplicationController < Sinatra::Base
   redirect '/articles'
   end
 
+  get '/articles' do
+  @posts = Post.all
+  erb :index
+end
+
   get '/articles/:id' do
     @article = Article.find(params["id"])
     erb :show
