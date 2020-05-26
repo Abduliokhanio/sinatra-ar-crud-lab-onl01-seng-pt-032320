@@ -20,22 +20,6 @@ class ApplicationController < Sinatra::Base
   redirect '/articles/'
   end
 
-  get '/articles' do
-    @article = Article.all
-    erb :index
-  end
-
-  get '/articles/:id' do
-  @article = Article.find(params[:id])
-  erb :show
-end
-
-patch "/articles/:id" do
-      @article = Article.find(params[:id])
-      # @article.update(title: params[:title], content: params[:content])
-      @article.update(params[:article])
-      redirect to "/articles/#{ @article.id }"
-    end
 
 
 end
